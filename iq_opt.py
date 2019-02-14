@@ -61,7 +61,10 @@ op.add_option("--NOINFO", action="store_true", dest="info_phase",
               help="Hide info_phase.")	
 op.add_option("--NOBORDER", action="store_true", dest="hideborders",
               help="Hide borders.")			  
-
+op.add_option("--INVCOLORSP", action="store_true", dest="invcolorsp",
+              help="inverse color.")
+op.add_option("--INVCOLORWF", action="store_true", dest="invcolorwf",
+              help="inverse color.")
 
 # Options with a parameter.
 op.add_option("--cpu_load_intvl", action="store", type="float", dest="cpu_load_interval",
@@ -157,7 +160,9 @@ op.set_defaults(
 	ident = "IQ.PY v. 0.3.6 de AA6E", 
 	freqgridticksinterval=0,
 	freqlabelticksinterval=1, 
-	scalscreensep=3
+	scalscreensep=3,
+	invcolorsp=False,
+	invcolorwf=False
 )
 
 opt, args = op.parse_args()

@@ -64,7 +64,7 @@ YELLOW = (192, 192, 0)
 DARK_RED = (128, 0, 0)
 LITE_RED = (255, 100, 100)
 LITE_GREEN = (0, 128, 0)
-BGCOLOR = (255, 230, 200)
+BGCOLOR = (250, 230, 230)
 BLUE_GRAY = (100, 100, 180)
 ORANGE = (255, 150, 0)
 GRAY = (192, 192, 192)
@@ -124,9 +124,20 @@ print("sp_min, max	 :", opt.sp_min, opt.sp_max)
 print("v_min, max	   :", opt.v_min, opt.v_max)
 # print "max queue dept:", opt.max_queue
 print("PCM290x lagfix  :", opt.lagfix)
+print("Inverse the color of spectrum  :", opt.invcolorsp)
+print("Inverse the color watterfall :", opt.invcolorwf)
+
 if opt.lcd4:
 	print("LCD4 brightnes  :", opt.lcd4_brightness)
 
+if opt.invcolorsp: 
+	BLACK = (255, 255, 255)
+	WHITE = (0, 0, 0)
+	GRAT_COLOR = DARK_RED
+	GRAT_COLOR_0khz=DARK_RED
+	GRAT_COLOR_2=DARK_RED
+	TRANS_OVERLAY=BGCOLOR
+	TCOLOR2=BGCOLOR
 
 def quit_all():
 	""" Quit pygames and close std outputs somewhat gracefully.

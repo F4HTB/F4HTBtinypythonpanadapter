@@ -30,7 +30,7 @@ import numpy as np
 import pygame as pg
 
 
-def palette_color(palette, val, vmin0, vmax0):
+def palette_color(palette, val, vmin0, vmax0, inv=False):
     """ translate a data value into a color according to several different
         methods. (PALETTE variable)
         input: value of data, minimum value, maximum value for transform
@@ -59,8 +59,10 @@ def palette_color(palette, val, vmin0, vmax0):
     else:
         print("Invalid palette requested!")
         sys.exit()
-    return max(0, min(255, r)), max(0, min(255, g)), max(0, min(255, b))
-
+    if inv:
+        return max(0, min(255, (255-r))), max(0, min(255, (255-g))), max(0, min(255, (255-b)))
+    else:
+        return max(0, min(255, r)), max(0, min(255, g)), max(0, min(255, b))
 
 class Wf(object):
     """ Make a waterfall '3d' display of spectral power vs frequency & time.
@@ -90,7 +92,7 @@ class Wf(object):
         for istep in range(self.nsteps):
             ps = pg.Surface(self.pixel_size)
             val = float(istep) * (self.vmax - self.vmin) / self.nsteps + self.vmin
-            color = palette_color(self.opt.waterfall_palette, val, self.vmin, self.vmax)
+            color = palette_color(self.opt.waterfall_palette, val, self.vmin, self.vmax, self.opt.invcolorwf)
             ps.fill(color)
             self.pixels.append(ps)
 
