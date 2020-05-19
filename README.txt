@@ -1,6 +1,6 @@
 Fork from GrayNerd's tinypythonpanadapter
 
-![alt tag](F4HTBtinypythonpanadapter.jpg)
+![Alt text](/F4HTBtinypythonpanadapter.jpg?raw=true "F4HTBtinypythonpanadapter")
 
 requirements:
 
