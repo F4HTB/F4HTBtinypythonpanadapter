@@ -3,7 +3,7 @@ Fork from GrayNerd's tinypythonpanadapter<br />
 <br />
 ![F4HTBtinypythonpanadapter](https://user-images.githubusercontent.com/18350938/82387136-834d1580-9a36-11ea-8b6c-0b5671cc9419.jpg)<br />
 <br />
-<pre style="background-color:white;font-size:80%">
+<pre style="background-color:white;font-size:80%;">
 requirements:<br />
 <br />
 sudo apt-get install -y rtl-sdr python-pip python-numpy git pandoc git <br />
