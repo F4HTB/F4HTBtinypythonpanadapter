@@ -1,7 +1,5 @@
 Fork from GrayNerd's tinypythonpanadapter
 
-![Alt text](/F4HTBtinypythonpanadapter.jpg?raw=true "F4HTBtinypythonpanadapter")
-
 requirements:
 
 sudo apt-get install -y rtl-sdr python-pip python-numpy git pandoc git 
