@@ -21,7 +21,7 @@ sudo git clone https://github.com/F4HTB/F4HTBtinypythonpanadapter.git /opt/F4HTB
 sudo chmod 755 /opt/F4HTBtinypythonpanadapter/*.py
 sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 #comment all and add:
-/opt/F4HTBtinypythonpanadapter/DISPLAY=:0 ./iq.py --RTL --rtl_gain=0 --FULLSCREEN --WATERFALL --rate=2048000 --rtl_freq=145000000 --size=800 --NOMOUSE --screenresolution=800x480 --ident=F6CMB --NOSHOWFREQ --NOINFO --NOBORDER --fontsize=16 --freqgridticksinterval=100 --freqlabelticksinterval=2 --scalscreensep=50
+@/opt/F4HTBtinypythonpanadapter/iq.py --RTL --rtl_gain=0 --FULLSCREEN --WATERFALL --rate=2048000 --rtl_freq=145000000 --size=800 --NOMOUSE --screenresolution=800x480 --ident=F6CMB --NOSHOWFREQ --NOINFO --NOBORDER --fontsize=16 --freqgridticksinterval=100 --freqlabelticksinterval=2 --scalscreensep=50
 
 
 Options:
