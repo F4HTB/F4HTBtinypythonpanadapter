@@ -32,6 +32,11 @@ for FT817PNA use:<br />
 @/opt/F4HTBtinypythonpanadapter/iq.py --sp_max=-70 --REV --RTL --rtl_gain=0 --FULLSCREEN --WATERFALL --rate=1024000 --rtl_freq=68330000 --size=800 --NOMOUSE --screenresolution=800x480 --ident=F6CMB --NOSHOWFREQ --NOINFO --NOBORDER --fontsize=16 --freqgridticksinterval=50 --freqlabelticksinterval=2 --scalscreensep=50<br />
 <br />
 <br />
+If it's more simple for you to edit options with a sd card reader you can add a symlink as:
+sudo mv /etc/xdg/lxsession/LXDE-pi/autostart /boot/autostart
+ln -s /boot/autostart /etc/xdg/lxsession/LXDE-pi/autostart 
+<br />
+<br />
 Options:<br />
   -h, --help            show this help message and exit<br />
   --FULLSCREEN          Switch to full screen display.<br />
