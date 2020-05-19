@@ -63,6 +63,7 @@ RED = (255, 0, 0)
 YELLOW = (192, 192, 0)
 DARK_RED = (128, 0, 0)
 LITE_RED = (255, 100, 100)
+LITE_GREEN = (0, 128, 0)
 BGCOLOR = (255, 230, 200)
 BLUE_GRAY = (100, 100, 180)
 ORANGE = (255, 150, 0)
@@ -75,6 +76,7 @@ SCREENH=512
 
 # Adjust for best graticule color depending on display gamma, resolution, etc.
 GRAT_COLOR = DARK_RED  # Color of graticule (grid)
+GRAT_COLOR_0khz = LITE_GREEN  # Color of graticule (grid) 0KHZ
 GRAT_COLOR_2 = WHITE  # Color of graticule text
 TRANS_OVERLAY = TRANS_YELLOW  # for info overlay
 TCOLOR2 = ORANGE  # text color on info screen
@@ -176,7 +178,7 @@ class Graticule(object):
 			and text color
 	"""
 	
-	def __init__(self, opt, font, h, w, color_l, color_t):
+	def __init__(self, opt, font, h, w, color_l, color_t, color_l0KHZ):
 		self.opt = opt
 		self.sp_max = opt.sp_max  # -20   # default max value (dB)
 		self.sp_min = opt.sp_min  # -120  # default min value
@@ -185,6 +187,7 @@ class Graticule(object):
 		self.w = w  # width
 		self.color_l = color_l  # color for lines
 		self.color_t = color_t  # color for text
+		self.color_l0KHZ = color_l0KHZ # color for 0khz
 		self.surface = pg.Surface((self.w, self.h))
 		return
 
@@ -228,7 +231,10 @@ class Graticule(object):
 			ticks = [-xtick_max, -xtick_max / 2, 0, xtick_max / 2, xtick_max]
 		for offset in ticks:
 			x = offset * xscale + self.w / 2
-			pg.draw.line(self.surface, self.color_l, (x, 0), (x, self.h))
+			if offset == 0:
+				pg.draw.line(self.surface, self.color_l0KHZ, (x, 0), (x, self.h))
+			else:
+				pg.draw.line(self.surface, self.color_l, (x, 0), (x, self.h))
 		for offset in ticks[::opt.freqlabelticksinterval]:
 			fmt = "%d kHz" if offset == 0 else "%+3d"
 			x = offset * xscale + self.w / 2 - int(self.font.render(fmt % offset, 1, self.color_t).get_width())/2
@@ -429,7 +435,7 @@ lm_thread.start()
 print("CPU monitor thread started.")
 
 # Create graticule providing 2d graph calibration.
-mygraticule = Graticule(opt, smfont, h_2d, w_spectra, GRAT_COLOR, GRAT_COLOR_2)
+mygraticule = Graticule(opt, smfont, h_2d, w_spectra, GRAT_COLOR, GRAT_COLOR_2, GRAT_COLOR_0khz)
 sp_min, sp_max = sp_min_def, sp_max_def = opt.sp_min, opt.sp_max
 mygraticule.set_range(sp_min, sp_max)
 surf_2d_graticule = mygraticule.make()
