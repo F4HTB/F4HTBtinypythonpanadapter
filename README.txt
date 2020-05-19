@@ -14,14 +14,18 @@ run:
 git clone https://github.com/F4HTB/F4HTBtinypythonpanadapter.git 
 chmod 755 F4HTBtinypythonpanadapter/*.py
 cd F4HTBtinypythonpanadapter/
-DISPLAY=:0 ./iq.py --RTL --rtl_gain=0 --FULLSCREEN --WATERFALL --rate=2048000 --rtl_freq=145000000 --size=800 --NOMOUSE --screenresolution=800x480 --ident=F6CMB --NOSHOWFREQ --NOINFO --NOBORDER --fontsize=16 --freqgridticksinterval=100 --freqlabelticksinterval=2 --scalscreensep=50
+DISPLAY=:0 ./iq.py --RTL --rtl_gain=0 --FULLSCREEN --WATERFALL --rate=2048000 --rtl_freq=145000000 --size=800 --NOMOUSE --screenresolution=800x480 --ident=F4HTB --NOSHOWFREQ --NOINFO --NOBORDER --fontsize=16 --freqgridticksinterval=100 --freqlabelticksinterval=2 --scalscreensep=50
 
 autorun:
 sudo git clone https://github.com/F4HTB/F4HTBtinypythonpanadapter.git /opt/F4HTBtinypythonpanadapter
 sudo chmod 755 /opt/F4HTBtinypythonpanadapter/*.py
 sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 #comment all and add:
-@/opt/F4HTBtinypythonpanadapter/iq.py --RTL --rtl_gain=0 --FULLSCREEN --WATERFALL --rate=2048000 --rtl_freq=145000000 --size=800 --NOMOUSE --screenresolution=800x480 --ident=F6CMB --NOSHOWFREQ --NOINFO --NOBORDER --fontsize=16 --freqgridticksinterval=100 --freqlabelticksinterval=2 --scalscreensep=50
+@/opt/F4HTBtinypythonpanadapter/iq.py --RTL --rtl_gain=0 --FULLSCREEN --WATERFALL --rate=2048000 --rtl_freq=145000000 --size=800 --NOMOUSE --screenresolution=800x480 --ident=F4HTB --NOSHOWFREQ --NOINFO --NOBORDER --fontsize=16 --freqgridticksinterval=100 --freqlabelticksinterval=2 --scalscreensep=50
+
+
+for FT817PNA use:
+@/opt/F4HTBtinypythonpanadapter/iq.py --sp_max=-70 --REV --RTL --rtl_gain=0 --FULLSCREEN --WATERFALL --rate=1024000 --rtl_freq=68330000 --size=800 --NOMOUSE --screenresolution=800x480 --ident=F6CMB --NOSHOWFREQ --NOINFO --NOBORDER --fontsize=16 --freqgridticksinterval=50 --freqlabelticksinterval=2 --scalscreensep=50
 
 
 Options:
